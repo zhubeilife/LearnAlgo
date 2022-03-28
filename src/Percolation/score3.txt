@@ -1,0 +1,1295 @@
+See the Assessment Guide for information on how to interpret this report.
+
+Want to receive personalized feedback on this submission?
+You can pay to have a teaching assistant read and provide
+personalized feedback on your submission at https://mooc.codepost.io.
+
+ASSESSMENT SUMMARY
+
+Compilation:  PASSED
+API:          PASSED
+
+SpotBugs:     PASSED
+PMD:          PASSED
+Checkstyle:   PASSED
+
+Correctness:  18/38 tests passed
+Memory:       5/8 tests passed
+Timing:       10/20 tests passed
+
+Aggregate score: 54.67%
+[Compilation: 5%, API: 5%, SpotBugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
+
+ASSESSMENT DETAILS
+
+The following files were submitted:
+----------------------------------
+3.2K Jan 16 13:32 Percolation.java
+2.1K Jan 16 13:32 PercolationStats.java
+
+
+********************************************************************************
+*  COMPILING                                                                    
+********************************************************************************
+
+
+% javac Percolation.java
+*-----------------------------------------------------------
+
+% javac PercolationStats.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+Checking the APIs of your programs.
+*-----------------------------------------------------------
+Percolation:
+
+PercolationStats:
+
+================================================================
+
+
+********************************************************************************
+*  CHECKING STYLE AND COMMON BUG PATTERNS                                       
+********************************************************************************
+
+
+% spotbugs *.class
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+% pmd .
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+% checkstyle *.java
+*-----------------------------------------------------------
+
+% custom checkstyle checks for Percolation.java
+*-----------------------------------------------------------
+
+% custom checkstyle checks for PercolationStats.java
+*-----------------------------------------------------------
+
+
+================================================================
+
+
+********************************************************************************
+*  TESTING CORRECTNESS
+********************************************************************************
+
+Testing correctness of Percolation
+*-----------------------------------------------------------
+Running 21 total tests.
+
+Tests 1 through 7 create a Percolation object using your code, then repeatedly
+open sites by calling open(). After each call to open(), it checks the return
+values of isOpen(), percolates(), numberOfOpenSites(), and isFull() in that order.
+Tests 12 through 15 create a Percolation object using your code, then repeatedly
+call the methods open(), isOpen(), isFull(), percolates(), and, numberOfOpenSites()
+in random order with probabilities p = (p1, p2, p3, p4, p5). The tests stop
+immediately after the system percolates.
+
+Tests 18 through 21 test backwash.
+
+Except as noted, a site is opened at most once.
+
+Test 1: open predetermined list of sites using file inputs
+  * filename = input6.txt
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8-no.txt
+  * filename = input10-no.txt
+    - percolates() returns wrong value after 25 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = greeting57.txt
+    - percolates() returns wrong value after 2470 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = heart25.txt
+    - percolates() returns wrong value after 133 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 2: open random sites until the system percolates
+  * n = 3
+  * n = 5
+    - percolates() returns wrong value after 6 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 10
+    - percolates() returns wrong value after 54 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 10
+    - percolates() returns wrong value after 53 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 20
+    - percolates() returns wrong value after 187 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 20
+    - percolates() returns wrong value after 28 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 50
+    - percolates() returns wrong value after 1095 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 50
+==> FAILED
+
+Test 3: open predetermined sites for n = 1 and n = 2 (corner case test)
+  * filename = input1.txt
+  * filename = input1-no.txt
+  * filename = input2.txt
+  * filename = input2-no.txt
+==> passed
+
+Test 4: check predetermined sites with long percolating path
+  * filename = snake13.txt
+    - percolates() returns wrong value after 85 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+  * filename = snake101.txt
+    - percolates() returns wrong value after 5101 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+==> FAILED
+
+Test 5: open every site
+  * filename = input5.txt
+    - percolates() returns wrong value after 4 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 6: open random sites until the system percolates,
+        allowing open() to be called on a site more than once
+  * n = 3
+  * n = 5
+    - percolates() returns wrong value after 9 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 10
+    - percolates() returns wrong value after 36 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 10
+    - percolates() returns wrong value after 53 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 20
+    - percolates() returns wrong value after 153 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 20
+    - percolates() returns wrong value after 138 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 50
+    - percolates() returns wrong value after 705 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * n = 50
+    - percolates() returns wrong value after 11 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 7: open random sites with large n
+  * n = 250
+  * n = 500
+  * n = 1000
+  * n = 2000
+==> passed
+
+Test 8: call methods with invalid arguments
+  * n = 10, (row, col) = (-1, 5)
+  * n = 10, (row, col) = (11, 5)
+  * n = 10, (row, col) = (0, 5)
+  * n = 10, (row, col) = (5, -1)
+  * n = 10, (row, col) = (5, 11)
+  * n = 10, (row, col) = (5, 0)
+  * n = 10, (row, col) = (-2147483648, -2147483648)
+  * n = 10, (row, col) = (2147483647, 2147483647)
+==> passed
+
+Test 9: call constructor with invalid argument
+  * n = -10
+  * n = -1
+  * n = 0
+==> passed
+
+Test 10: create multiple Percolation objects at the same time
+        (to make sure you didn't store data in static variables)
+    - percolates() returns wrong value after 46 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 47 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 11: open predetermined list of sites using file inputs,
+         but permute the order in which methods are called
+  * filename = input8.txt;  order =     isFull(),     isOpen(), percolates()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt;  order =     isFull(), percolates(),     isOpen()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt;  order =     isOpen(),     isFull(), percolates()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt;  order =     isOpen(), percolates(),     isFull()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt;  order = percolates(),     isOpen(),     isFull()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input8.txt;  order = percolates(),     isFull(),     isOpen()
+    - percolates() returns wrong value after 32 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 12: call open(), isOpen(), and numberOfOpenSites()
+         in random order until just before system percolates
+  * n = 3, trials = 40, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+  * n = 5, trials = 20, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+  * n = 7, trials = 10, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+  * n = 10, trials = 5, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+  * n = 20, trials = 2, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+  * n = 50, trials = 1, p = (0.4, 0.4, 0.0, 0.0, 0.3)
+==> passed
+
+Test 13: call open() and percolates() in random order until just before system percolates
+  * n = 3, trials = 40, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 2 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 2 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 40
+    - sequence of operations was:
+         percolation.open(1, 3)
+         percolation.open(3, 2)
+         percolation.percolates()
+         percolation.percolates()
+
+  * n = 5, trials = 20, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 20
+    - sequence of operations was:
+         percolation.percolates()
+         percolation.percolates()
+         percolation.percolates()
+         percolation.percolates()
+         percolation.open(1, 5)
+         percolation.percolates()
+         percolation.percolates()
+
+  * n = 7, trials = 10, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 6 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 6 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+    - sequence of operations was:
+         percolation.percolates()
+         percolation.percolates()
+         percolation.percolates()
+         percolation.open(5, 3)
+         percolation.open(1, 3)
+         percolation.open(6, 1)
+         percolation.percolates()
+         percolation.open(1, 2)
+         percolation.percolates()
+         percolation.open(6, 4)
+         percolation.open(1, 7)
+         percolation.percolates()
+         percolation.percolates()
+
+  * n = 10, trials = 5, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 20 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 20 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 5
+
+  * n = 20, trials = 2, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 178 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 178 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 2
+
+  * n = 50, trials = 1, p = (0.5, 0.0, 0.0, 0.5, 0.0)
+    - percolates() returns wrong value after 1227 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 1227 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+Test 14: call open() and isFull() in random order until just before system percolates
+  * n = 3, trials = 40, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+  * n = 5, trials = 20, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+  * n = 7, trials = 10, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+  * n = 10, trials = 5, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+  * n = 20, trials = 2, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+  * n = 50, trials = 1, p = (0.5, 0.0, 0.5, 0.0, 0.0)
+==> passed
+
+Test 15: call all methods in random order until just before system percolates
+  * n = 3, trials = 40, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 40
+    - sequence of operations was:
+         percolation.numberOfOpenSites()
+         percolation.percolates()
+         percolation.numberOfOpenSites()
+         percolation.isOpen(row, col) for each row and col
+         percolation.numberOfOpenSites()
+         percolation.isOpen(row, col) for each row and col
+         percolation.numberOfOpenSites()
+         percolation.open(1, 3)
+         percolation.isFull(row, col) for each row and col
+         percolation.isFull(row, col) for each row and col
+         percolation.percolates()
+         percolation.percolates()
+
+  * n = 5, trials = 20, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 13 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 13 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 20
+
+  * n = 7, trials = 10, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 23 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 23 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+
+  * n = 10, trials = 5, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 57 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 57 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 5
+
+  * n = 20, trials = 2, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 44 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 44 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 2
+
+  * n = 50, trials = 1, p = (0.2, 0.2, 0.2, 0.2, 0.2)
+    - percolates() returns wrong value after 910 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - percolates() returns wrong value after 910 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+Test 16: call all methods in random order until almost all sites are open
+         (with inputs not prone to backwash)
+  * n = 3
+    - percolates() returns wrong value after 5 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 40
+
+  * n = 5
+    - percolates() returns wrong value after 15 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 20
+
+  * n = 7
+    - percolates() returns wrong value after 23 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+
+  * n = 10
+    - percolates() returns wrong value after 40 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 5
+
+  * n = 20
+    - percolates() returns wrong value after 62 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 2
+
+  * n = 50
+    - percolates() returns wrong value after 1631 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+Test 17: substitute WeightedQuickUnionUF data type that sets root nondeterministically;
+         call all methods in random order until almost all sites are open
+         (with inputs not prone to backwash)
+  * n = 3
+    - percolates() returns wrong value after 4 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 2 of 40
+
+  * n = 5
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 20
+
+  * n = 7
+    - percolates() returns wrong value after 6 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+
+  * n = 10
+    - percolates() returns wrong value after 58 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 5
+
+  * n = 20
+    - percolates() returns wrong value after 58 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 2
+
+  * n = 50
+    - percolates() returns wrong value after 866 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+Test 18: check for backwash with predetermined sites
+  * filename = input20.txt
+    - percolates() returns wrong value after 204 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+  * filename = input10.txt
+    - percolates() returns wrong value after 25 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input50.txt
+    - percolates() returns wrong value after 1347 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = jerry47.txt
+    - percolates() returns wrong value after 396 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = sedgewick60.txt
+    - percolates() returns wrong value after 1577 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+  * filename = wayne98.txt
+    - percolates() returns wrong value after 3005 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+==> FAILED
+
+Test 19: check for backwash with predetermined sites that have
+         multiple percolating paths
+  * filename = input3.txt
+    - percolates() returns wrong value after 1 site opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+  * filename = input4.txt
+    - percolates() returns wrong value after 4 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+  * filename = input7.txt
+    - percolates() returns wrong value after 12 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+==> FAILED
+
+Test 20: call all methods in random order until all sites are open
+         (these inputs are prone to backwash)
+  * n = 3
+    - percolates() returns wrong value after 3 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 40
+
+  * n = 5
+    - percolates() returns wrong value after 2 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 20
+
+  * n = 7
+    - percolates() returns wrong value after 16 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+
+  * n = 10
+    - percolates() returns wrong value after 71 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 5
+
+  * n = 20
+    - percolates() returns wrong value after 168 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 2
+
+  * n = 50
+    - percolates() returns wrong value after 1567 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+Test 21: substitute WeightedQuickUnionUF data type that sets root nondeterministically;
+         call all methods in random order until all sites are open
+         (these inputs are prone to backwash)
+  * n = 3
+    - percolates() returns wrong value after 7 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 2 of 40
+
+  * n = 5
+    - percolates() returns wrong value after 17 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 20
+
+  * n = 7
+    - percolates() returns wrong value after 21 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 10
+
+  * n = 10
+    - percolates() returns wrong value after 51 sites opened
+    - student   percolates() = true
+    - reference percolates() = false
+
+    - failed on trial 1 of 5
+
+  * n = 20
+    - percolates() returns wrong value after 226 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 2
+
+  * n = 50
+    - percolates() returns wrong value after 1460 sites opened
+    - student   percolates() = false
+    - reference percolates() = true
+
+    - failed on trial 1 of 1
+
+==> FAILED
+
+
+Total: 6/21 tests passed!
+
+
+================================================================
+********************************************************************************
+*  TESTING CORRECTNESS (substituting reference Percolation)
+********************************************************************************
+
+Testing correctness of PercolationStats
+*-----------------------------------------------------------
+Running 17 total tests.
+
+Test 1: check formatting of output of main()
+  % java-algs4 PercolationStats 20 10
+  mean                    = 0.5807499999999999
+  stddev                  = 0.04764244569266935
+  95% confidence interval = [0.5598697775521023, 0.6016302224478974]
+
+  % java-algs4 PercolationStats 200 100
+  mean                    = 0.5931112499999998
+  stddev                  = 0.010057165359225928
+  95% confidence interval = [0.5917173979942952, 0.5945051020057043]
+
+==> passed
+
+Test 2: check that methods in PercolationStats do not print to standard output
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 3: check that mean() returns value in expected range
+  * n =   2, trials = 10000
+    - student PercolationStats mean()     = 0.625000
+    - true mean                           = 0.6666666666666666
+    - 99.99% confidence interval          = [0.662284, 0.671050]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+
+  * n =   5, trials = 10000
+    - student PercolationStats mean()     = 0.584000
+    - true mean                           = 0.5939914915553629
+    - 99.99% confidence interval          = [0.590174, 0.597809]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+
+  * n =  10, trials = 10000
+    - student PercolationStats mean()     = 0.594000
+    - true mean                           = 0.5904
+    - 99.99% confidence interval          = [0.587665, 0.593135]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+
+  * n =  25, trials = 10000
+    - student PercolationStats mean()     = 0.582784
+    - true mean                           = 0.5917
+    - 99.99% confidence interval          = [0.590140, 0.593260]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+
+==> FAILED
+
+Test 4: check that stddev() returns value in expected range
+  * n =   2, trials = 10000
+    - student PercolationStats stddev() = 0.000000
+    - true stddev                       = 0.117851
+    - 99.99% confidence interval        = [0.114620, 0.121104]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+  * n =   5, trials = 10000
+  * n =  10, trials = 10000
+    - student PercolationStats stddev() = 0.060955
+    - true stddev                       = 0.073553
+    - 99.99% confidence interval        = [0.071536, 0.075583]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+  * n =  25, trials = 10000
+    - student PercolationStats stddev() = 0.039689
+    - true stddev                       = 0.041952
+    - 99.99% confidence interval        = [0.040802, 0.043110]
+    - a correct solution will fail this test by bad luck 1 time in 10,000
+
+==> FAILED
+
+Test 5: check that PercolationStats constructor creates
+        trials Percolation objects, each of size n-by-n
+  * n =  15, trials =  15
+  * n =  20, trials =  10
+    - number of Percolation objects created by student   constructor = 20
+    - number of Percolation objects created by reference constructor = 10
+
+  * n =  50, trials =  20
+    - number of Percolation objects created by student   constructor = 50
+    - number of Percolation objects created by reference constructor = 20
+
+  * n = 100, trials =  50
+    - number of Percolation objects created by student   constructor = 100
+    - number of Percolation objects created by reference constructor = 50
+
+  * n =  64, trials = 150
+    - number of Percolation objects created by student   constructor = 64
+    - number of Percolation objects created by reference constructor = 150
+
+==> FAILED
+
+Test 6: check that PercolationStats.main() creates
+        trials Percolation objects, each of size n-by-n
+  * n =  15, trials =  15
+  * n =  20, trials =  10
+    - number of Percolation objects created by student   main() = 20
+    - number of Percolation objects created by reference main() = 10
+
+  * n =  50, trials =  20
+    - number of Percolation objects created by student   main() = 50
+    - number of Percolation objects created by reference main() = 20
+
+  * n = 100, trials =  50
+    - number of Percolation objects created by student   main() = 100
+    - number of Percolation objects created by reference main() = 50
+
+  * n =  64, trials = 150
+    - number of Percolation objects created by student   main() = 64
+    - number of Percolation objects created by reference main() = 150
+
+==> FAILED
+
+Test 7: check that PercolationStats calls open() until system percolates
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 8: check that PercolationStats does not call open() after system percolates
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 9: check that mean() is consistent with the number of intercepted calls to open()
+        on blocked sites
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 10: check that stddev() is consistent with the number of intercepted calls to open()
+         on blocked sites
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 11: check that confidenceLo() and confidenceHigh() are consistent with mean() and stddev()
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 12: check that exception is thrown if either n or trials is out of bounds
+  * n = -23, trials =  42
+  * n =  23, trials =   0
+  * n = -42, trials =   0
+  * n =  42, trials =  -1
+  * n = -2147483648, trials = -2147483648
+==> passed
+
+Test 13: create two PercolationStats objects at the same time and check mean()
+         (to make sure you didn't store data in static variables)
+  * n1 =  50, trials1 =  10, n2 =  50, trials2 =   5
+  * n1 =  50, trials1 =   5, n2 =  50, trials2 =  10
+  * n1 =  50, trials1 =  10, n2 =  25, trials2 =  10
+  * n1 =  25, trials1 =  10, n2 =  50, trials2 =  10
+  * n1 =  50, trials1 =  10, n2 =  15, trials2 = 100
+  * n1 =  15, trials1 = 100, n2 =  50, trials2 =  10
+==> passed
+
+Test 14: check that the methods return the same value, regardless of
+         the order in which they are called
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 15: check that no calls to StdRandom.setSeed()
+  * n = 20, trials = 10
+  * n = 20, trials = 10
+  * n = 40, trials = 10
+  * n = 80, trials = 10
+==> passed
+
+Test 16: check distribution of number of sites opened until percolation
+  * n = 2, trials = 100000
+
+            value  observed  expected   2*O*ln(O/E)
+        -------------------------------------------
+                2     10977   33333.0     -24385.31
+                3     89023   66667.0      51488.18
+        -------------------------------------------
+                     100000  100000.0      27102.86
+    
+    G-statistic = 27102.86 (p-value = 0.000000, reject if p-value <= 0.0001)
+    Note: a correct solution will fail this test by bad luck 1 time in 10,000.
+
+
+  * n = 3, trials = 100000
+
+            value  observed  expected   2*O*ln(O/E)
+        -------------------------------------------
+                3        48    3571.0       -413.70
+                4      5176   13889.0     -10218.09
+                5     41734   29365.0      29340.06
+                6     48250   32937.0      36843.62
+                7      4792   20238.0     -13806.85
+        -------------------------------------------
+                     100000  100000.0      41745.04
+    
+    G-statistic = 41745.04 (p-value = 0.000000, reject if p-value <= 0.0001)
+    Note: a correct solution will fail this test by bad luck 1 time in 10,000.
+
+
+  * n = 4, trials = 100000
+
+            value  observed  expected   2*O*ln(O/E)
+        -------------------------------------------
+                4         0     220.0          0.00
+                5         0    1154.0          0.00
+                6        23    3497.0       -231.11
+                7       747    7822.0      -3508.85
+                8      8081   13850.0      -8707.59
+                9     31002   19542.0      28613.96
+               10     41110   21522.0      53210.79
+               11     17277   17924.0      -1270.36
+               12      1740   10733.0      -6331.64
+               13        20    3736.0       -209.20
+        -------------------------------------------
+                     100000  100000.0      61565.98
+    
+    G-statistic = 61565.98 (p-value = 0.000000, reject if p-value <= 0.0001)
+    Note: a correct solution will fail this test by bad luck 1 time in 10,000.
+
+
+==> FAILED
+
+Test 17: check that each site is opened the expected number of times
+  * n = 2, trials = 100000
+  * n = 3, trials = 100000
+  * n = 4, trials = 100000
+==> passed
+
+
+Total: 12/17 tests passed!
+
+
+================================================================
+********************************************************************************
+*  MEMORY (substituting reference Percolation)
+********************************************************************************
+
+Analyzing memory of PercolationStats
+*-----------------------------------------------------------
+Running 4 total tests.
+
+Test 1a-1d: check memory usage as a function of T trials for n = 100
+            (max allowed: 8*T + 128 bytes)
+
+                 T        bytes
+--------------------------------------------
+=> FAILED       16          856   (3.3x)
+=> FAILED       32          856   (2.2x)
+=> FAILED       64          856   (1.3x)
+=> passed      128          856         
+==> 1/4 tests passed
+
+
+If you failed this test, it may be because you are holding an unnecessary
+reference to a (large) Percolation object in an instance variable. Would
+storing it in a local variable suffice?
+
+
+Estimated student memory = 856.00   (R^2 = 1.000)
+
+Total: 1/4 tests passed!
+
+
+================================================================
+
+
+
+********************************************************************************
+*  TIMING (substituting reference Percolation)
+********************************************************************************
+
+Timing PercolationStats
+*-----------------------------------------------------------
+Running 4 total tests.
+
+Test 1: Call PercolationStats constructor and instance methods and
+        count calls to StdStats.mean() and StdStats.stddev().
+  * n =  20, trials =  10
+  * n =  50, trials =  20
+  * n = 100, trials =  50
+  * n =  64, trials = 150
+==> passed
+
+Test 2: Call PercolationStats constructor and instance methods and
+        count calls to methods in StdRandom.
+  * n = 20, trials = 10
+    - number of student   random numbers generated in StdRandom = 14318
+    - number of reference random numbers generated in StdRandom = 0
+    - you should not need to generated this many random numbers in this program
+
+  * n = 20, trials = 10
+    - number of student   random numbers generated in StdRandom = 14528
+    - number of reference random numbers generated in StdRandom = 0
+    - you should not need to generated this many random numbers in this program
+
+  * n = 40, trials = 10
+    - number of student   random numbers generated in StdRandom = 115418
+    - number of reference random numbers generated in StdRandom = 0
+    - you should not need to generated this many random numbers in this program
+
+  * n = 80, trials = 10
+    - number of student   random numbers generated in StdRandom = 927028
+    - number of reference random numbers generated in StdRandom = 0
+    - you should not need to generated this many random numbers in this program
+
+==> FAILED
+
+Test 3: Call PercolationStats constructor and instance methods and
+        count calls to methods in Percolation.
+  * n =  20, trials =  10
+    - number of student   calls to constructor = 20
+    - number of reference calls to constructor = 0
+    - you should create exactly one Percolation object per trial
+
+    - number of student   calls to numberOfOpenSites() = 20
+    - number of reference calls to numberOfOpenSites() = 0
+    - you should not need to call numberOfOpenSites() more than once per trial
+
+    - number of student   calls to open() = 7134
+    - number of reference calls to open() = 0
+    - you should not need to call open() this many times
+
+    - number of student   calls to percolates() = 7154
+    - number of reference calls to percolates() = 0
+    - you should not need to call percolates() this many times
+
+  * n =  50, trials =  20
+    - number of student   calls to constructor = 50
+    - number of reference calls to constructor = 0
+    - you should create exactly one Percolation object per trial
+
+    - number of student   calls to numberOfOpenSites() = 50
+    - number of reference calls to numberOfOpenSites() = 0
+    - you should not need to call numberOfOpenSites() more than once per trial
+
+    - number of student   calls to open() = 113908
+    - number of reference calls to open() = 0
+    - you should not need to call open() this many times
+
+    - number of student   calls to percolates() = 113958
+    - number of reference calls to percolates() = 0
+    - you should not need to call percolates() this many times
+
+  * n = 100, trials =  50
+    - number of student   calls to constructor = 100
+    - number of reference calls to constructor = 0
+    - you should create exactly one Percolation object per trial
+
+    - number of student   calls to numberOfOpenSites() = 100
+    - number of reference calls to numberOfOpenSites() = 0
+    - you should not need to call numberOfOpenSites() more than once per trial
+
+    - number of student   calls to open() = 902925
+    - number of reference calls to open() = 0
+    - you should not need to call open() this many times
+
+    - number of student   calls to percolates() = 903025
+    - number of reference calls to percolates() = 0
+    - you should not need to call percolates() this many times
+
+  * n =  64, trials = 150
+    - number of student   calls to constructor = 64
+    - number of reference calls to constructor = 0
+    - you should create exactly one Percolation object per trial
+
+==> FAILED
+
+Test 4: Call PercolationStats constructor and instance methods with trials = 3
+        and values of n that go up by a multiplicative factor of sqrt(2).
+        The test passes when n reaches 2,896.
+
+     The approximate order-of-growth is n ^ (log ratio)
+
+         n  seconds log ratio
+     ------------------------
+       128     0.12       2.7
+       181     0.38       3.3
+       256     1.03       2.9
+       362     3.61       3.6
+       512    10.38       3.1
+
+    
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        OperationCountLimitExceededException
+        Number of calls to methods in WeightedQuickUnionUF exceeds limit: 1000000000
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+       724 Infinity  Infinity
+     [ exceeded the time limit of 15.0 seconds ]
+
+==> FAILED
+
+
+Total: 1/4 tests passed!
+
+
+================================================================
+
+
+
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Analyzing memory of Percolation
+*-----------------------------------------------------------
+Running 4 total tests.
+
+Test 1a-1d: check that total memory <= 17 n^2 + 128 n + 1024 bytes
+
+                 n        bytes
+--------------------------------------------
+=> passed       64        39096         
+=> passed      256       598200         
+=> passed      512      2375864         
+=> passed     1024      9470136         
+==> 4/4 tests passed
+
+
+Estimated student memory = 9.00 n^2 + 32.00 n + 184.00   (R^2 = 1.000)
+
+
+Test 2 (bonus): check that total memory <= 11 n^2 + 128 n + 1024 bytes
+   -  bonus available only if solution passes backwash correctness test
+==> FAILED
+
+
+Total: 4/4 tests passed!
+
+
+================================================================
+
+
+
+********************************************************************************
+*  TIMING
+********************************************************************************
+
+Timing Percolation
+*-----------------------------------------------------------
+Running 16 total tests.
+
+Test 1a-1e: Creates an n-by-n percolation system; open sites at random until
+            the system percolates, interleaving calls to percolates() and open().
+            Count calls to connected(), union() and find().
+
+                                       2 * connected()
+                 n       union()              + find()        constructor
+-----------------------------------------------------------------------------------
+=> FAILED       16          127                    10   (0.1x)          1         
+=> FAILED       32          139   (0.4x)           22   (0.0x)          1         
+=> FAILED       64         1026   (0.7x)           36   (0.0x)          1         
+=> FAILED      128         9357                   136   (0.0x)          1         
+=> FAILED      256        45043                   282   (0.0x)          1         
+=> FAILED      512           16   (0.0x)            6   (0.0x)          1         
+=> FAILED     1024       660222                  1138   (0.0x)          1         
+==> 0/7 tests passed
+
+
+If one of the values in the table violates the performance limits
+the factor by which you failed the test appears in parentheses.
+For example, (9.6x) in the union() column indicates that it uses
+9.6x too many calls.
+
+
+Tests 2a-2f: Check whether the number of calls to union(), connected(), and find()
+             is a constant per call to open(), isOpen(), isFull(), and percolates().
+             The table shows the maximum number of union() and find() calls made
+             during a single call to open(), isOpen(), isFull(), and percolates().
+             One call to connected() counts as two calls to find().
+
+                 n     per open()      per isOpen()    per isFull()    per percolates() 
+---------------------------------------------------------------------------------------------
+=> passed       16        2               0               2               0         
+=> passed       32        2               0               2               0         
+=> passed       64        4               0               2               0         
+=> passed      128        4               0               2               0         
+=> passed      256        4               0               2               0         
+=> passed      512        4               0               2               0         
+=> passed     1024        3               0               2               0         
+==> 7/7 tests passed
+
+
+
+Running time (in seconds) depends on the machine on which the script runs.
+
+
+Test 3: Create an n-by-n percolation system; interleave calls to percolates()
+        and open() until the system percolates. The values of n go up by a
+        factor of sqrt(2). The test is passed if n >= 4096 in under 10 seconds.
+
+     The approximate order-of-growth is n ^ (log ratio)
+
+                        log   union-find     log
+         n  seconds   ratio   operations   ratio
+     -------------------------------------------
+      1448     0.17     6.7      2484798     8.4
+      2048     0.46     2.9      5737994     2.4
+      2896     0.85     1.8      7418066     0.7
+      4096     1.66     1.9     12342150     1.5
+==> passed
+
+
+
+Test 4: Create an n-by-n percolation system; interleave calls to open(),
+        percolates(), isOpen(), isFull(), and numberOfOpenSites() until.
+        the system percolates. The values of n go up by a factor of sqrt(2).
+        The test is passed if n >= 4096 in under 10 seconds.
+
+                        log   union-find     log
+         n  seconds   ratio   operations   ratio
+     -------------------------------------------
+      1448     0.19     2.3      2530066     1.5
+      2048     0.47     2.6      5960650     2.5
+      2896     0.15    -3.4       629774    -6.5
+      4096     2.85     8.6     22073540    10.3
+==> passed
+
+
+Total: 9/16 tests passed!
+
+
+================================================================
