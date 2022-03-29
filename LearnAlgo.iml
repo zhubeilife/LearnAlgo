@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/CodeExample" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/HelloWorld" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/UnionFind" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Percolation" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
