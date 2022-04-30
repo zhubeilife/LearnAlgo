@@ -57,16 +57,16 @@ public class Merge {
         assert isSorted(a, mid+1, hi);
 
         // copy to aux[]
-        for (int k = lo; k <= hi; k++) {
+        for (int k = lo; k <= mid; k++) {
             aux[k] = a[k]; 
         }
 
         // merge back to a[]
         int i = lo, j = mid+1;
         for (int k = lo; k <= hi; k++) {
-            if      (i > mid)              a[k] = aux[j++];
+            if      (i > mid)              a[k] = a[j++];
             else if (j > hi)               a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else if (less(a[j], aux[i])) a[k] = a[j++];
             else                           a[k] = aux[i++];
         }
 
