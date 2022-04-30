@@ -59,3 +59,21 @@ week2学的是如何shuffle an array：
 
 [ShuffleAlist](ShuffleAList.java) 里面实现了这两个方法
 
+然后根据这个[blog](https://www.cnblogs.com/evasean/p/7232572.html)中解释的，其实我们就可以考虑进行sort这个list，可以采用merge sort的方式，而选取的时候用随机数的方式。
+
+```java
+    while(l != null && r!=null){
+        int rand = StdRandom.uniform(2);
+        if(rand == 0){ //如果随机数选为0，则从左侧选取元素
+            current.next = l;
+            current = current.next;
+            l= l.next;
+        }else{ //如果随机数选为1，则从右侧选取元素
+            current.next = r;
+            current = current.next;
+            r = r.next;
+        }
+    }
+```
+
+那其实sort和shuffle的关系可以通过如何sort来相互联系的。
