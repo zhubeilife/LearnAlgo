@@ -35,5 +35,7 @@ public class TestClient {
             segment.draw();
         }
         StdDraw.show();
+
+        StdOut.printf("\nThere are %d\n", collinear.numberOfSegments());
     }
 }
