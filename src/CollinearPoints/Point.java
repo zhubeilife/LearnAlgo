@@ -126,13 +126,6 @@ public class Point implements Comparable<Point> {
         return "(" + x + ", " + y + ")";
     }
 
-    public int checkcollinear(Point b, Point c) {
-        double area2 = (b.x-this.x)*(c.y-this.y) - (b.y-this.y)*(c.x-this.x);
-        if      (area2 < 0) return -1;
-        else if (area2 > 0) return +1;
-        else                return  0;
-    }
-
     /**
      * Unit tests the Point data type.
      */

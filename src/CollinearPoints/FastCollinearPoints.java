@@ -50,7 +50,7 @@ public class FastCollinearPoints {
         int currentminindex = 1;
 
         for (int i = 2; i < points.length; i++) {
-            int collinear = orgin.checkcollinear(points[currentminindex], points[i]);
+            int collinear = orgin.slopeOrder().compare(points[currentminindex], points[i]);
             if (collinear != 0) {
                 if (i - currentminindex >= 3) {
                     // find one
