@@ -64,7 +64,7 @@ public class FastCollinearPoints {
                 }
                 currentminindex = i;
             } else if (i == points.length - 1) {
-                if (i - currentminindex >= 3) {
+                if (i - currentminindex >= 2) {
                     // find one
                     // only return the one origin is on the edge
                     if (orgin.compareTo(points[currentminindex]) < 0) {
