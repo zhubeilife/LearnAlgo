@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FastCollinearPoints {
-    private Point[] points;
-    private int pointsNum;
+    private final Point[] points;
+    private final int pointsNum;
     private LineSegment[] segments;
 
     // finds all line segments containing 4 or more points
