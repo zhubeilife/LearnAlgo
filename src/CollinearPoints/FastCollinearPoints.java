@@ -5,7 +5,8 @@ import java.util.List;
 public class FastCollinearPoints {
     private final Point[] points;
     private final int pointsNum;
-    private LineSegment[] segments;
+    private List<LineSegment> segments;
+    private int numsegments;
 
     // finds all line segments containing 4 or more points
     public FastCollinearPoints(Point[] inputpoints) {
@@ -30,6 +31,7 @@ public class FastCollinearPoints {
         }
 
         this.segments = null;
+        this.numsegments = 0;
     }
 
     // the number of line segments
@@ -37,7 +39,7 @@ public class FastCollinearPoints {
         if (this.segments == null) {
             segments();
         }
-        return segments.length;
+        return numsegments;
     }
 
     private static void copylist(Point[] copyfrom, Point[] copyto) {
@@ -75,16 +77,19 @@ public class FastCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
-        List<LineSegment> segmentsList = new ArrayList<LineSegment>();
-        Point[] auxpoints = new Point[pointsNum];
+        if (this.segments == null) {
+            this.segments = new ArrayList<LineSegment>();
+            Point[] auxpoints = new Point[pointsNum];
 
-        for (int i = 0; i < pointsNum; i++) {
-            copylist(this.points, auxpoints);
-            Arrays.sort(auxpoints, points[i].slopeOrder());
-            findcollinear(auxpoints, segmentsList);
+            for (int i = 0; i < pointsNum; i++) {
+                copylist(this.points, auxpoints);
+                Arrays.sort(auxpoints, points[i].slopeOrder());
+                findcollinear(auxpoints, this.segments);
+            }
+
+            this.numsegments = this.segments.size();
         }
 
-        this.segments = segmentsList.toArray(LineSegment[]::new);
-        return this.segments;
+        return this.segments.toArray(LineSegment[]::new);
     }
 }
