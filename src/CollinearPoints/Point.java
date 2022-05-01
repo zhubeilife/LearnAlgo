@@ -141,7 +141,7 @@ public class Point implements Comparable<Point> {
         StdDraw.enableDoubleBuffering();
 
         Point[] points = new Point[n];
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             int x = StdRandom.uniform(100);
             int y = StdRandom.uniform(100);
             points[i] = new Point(x, y);

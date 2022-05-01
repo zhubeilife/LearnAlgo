@@ -58,11 +58,11 @@ public class BruteCollinearPoints {
             for (int i = 0; i < pointsNum - 3; i++) {
                 for (int j = i+1; j < pointsNum - 2; j++) {
                     for (int k = j+1; k < pointsNum - 1; k++) {
-                        for (int l = k+1; l < pointsNum; l++) {
+                        for (int h = k+1; h < pointsNum; h++) {
                             // For simplicity, we will not supply any input to BruteCollinearPoints
                             // that has 5 or more collinear points.
-                            if (checkfourpoints(points[i], points[j], points[k], points[l])) {
-                                segmentsList.add(new LineSegment(points[i], points[l]));
+                            if (checkfourpoints(points[i], points[j], points[k], points[h])) {
+                                segmentsList.add(new LineSegment(points[i], points[h]));
                             }
                         }
                     }
