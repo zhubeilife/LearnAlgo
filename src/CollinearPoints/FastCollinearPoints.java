@@ -13,21 +13,22 @@ public class FastCollinearPoints {
             throw new IllegalArgumentException("argument to BruteCollinearPoints constructor is null");
         }
 
+        this.pointsNum = inputpoints.length;
+        this.points = new Point[this.pointsNum];
         for (int i = 0; i < inputpoints.length; i++) {
             if (inputpoints[i] == null) {
                 throw new IllegalArgumentException("found null points");
             }
+            this.points[i] = inputpoints[i];
         }
 
-        Arrays.sort(inputpoints);
-        for (int i = 0; i < inputpoints.length - 1; i++) {
-            if (inputpoints[i].compareTo(inputpoints[i+1]) == 0) {
-                throw new IllegalArgumentException("found duplicated points: " + inputpoints[i]);
+        Arrays.sort(this.points);
+        for (int i = 0; i < this.points.length - 1; i++) {
+            if (this.points[i].compareTo(this.points[i+1]) == 0) {
+                throw new IllegalArgumentException("found duplicated points: " + this.points[i]);
             }
         }
 
-        this.points = inputpoints;
-        this.pointsNum = inputpoints.length;
         this.segments = null;
     }
 
