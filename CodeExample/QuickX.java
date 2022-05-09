@@ -47,6 +47,7 @@ public class QuickX {
     private static void sort(Comparable[] a, int lo, int hi) { 
         if (hi <= lo) return;
 
+        // Quicksort: practical improvements
         // cutoff to insertion sort (Insertion.sort() uses half-open intervals)
         int n = hi - lo + 1;
         if (n <= INSERTION_SORT_CUTOFF) {
@@ -63,6 +64,7 @@ public class QuickX {
     // and return the index j.
     private static int partition(Comparable[] a, int lo, int hi) {
         int n = hi - lo + 1;
+        // Quicksort: practical improvements
         int m = median3(a, lo, lo + n/2, hi);
         exch(a, m, lo);
 

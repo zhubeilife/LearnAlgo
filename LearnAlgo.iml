@@ -16,6 +16,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/DequesAndRandomizedQueues" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CollinearPoints" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/InterviewQ/Mergesort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/InterviewQ/Quicksort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/InterviewQ/StackAndQueues" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/InterviewQ/union-find" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
