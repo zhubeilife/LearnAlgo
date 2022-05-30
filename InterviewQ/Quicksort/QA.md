@@ -30,7 +30,7 @@ Given two sorted arrays `a[]` and `b[]`, of lengths `n1` and `n2` and an integer
 
 there are two basic approaches.
 
-+ Approach A: Compute the median in a[] and the median in b[]. Recur in a subproblem of roughly half the size.
++ Approach A: Compute the median in a[] and the median in b[]. Recur in a sub-problem of roughly half the size.
 
 + Approach B: Design a constant-time algorithm to determine whether a[i] is a key of rank k. Use this subroutine and binary search.
 
