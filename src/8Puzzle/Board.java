@@ -9,31 +9,37 @@ public class Board {
     // string representation of this board
     public String toString() {
 
+        return "temp";
     }
 
     // board dimension n
     public int dimension() {
 
+        return 0;
     }
 
     // number of tiles out of place
     public int hamming() {
 
+        return 0;
     }
 
     // sum of Manhattan distances between tiles and goal
     public int manhattan() {
 
+        return 0;
     }
 
     // is this board the goal board?
     public boolean isGoal() {
 
+        return false;
     }
 
     // does this board equal y?
     public boolean equals(Object y) {
 
+        return false;
     }
 
     // all neighboring boards

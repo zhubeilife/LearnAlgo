@@ -8,11 +8,13 @@ public class Solver {
     // is the initial board solvable? (see below)
     public boolean isSolvable() {
 
+        return false;
     }
 
     // min number of moves to solve initial board; -1 if unsolvable
     public int moves() {
 
+        return 0;
     }
 
     // sequence of boards in a shortest solution; null if unsolvable
