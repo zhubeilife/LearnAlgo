@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CheckStyle-IDEA">
-    <option name="configuration">
-      <map>
-        <entry key="checkstyle-version" value="8.14" />
-        <entry key="copy-libs" value="false" />
-        <entry key="location-0" value="BUNDLED:(bundled):Sun Checks;All" />
-        <entry key="location-1" value="BUNDLED:(bundled):Google Checks;All" />
-        <entry key="scan-before-checkin" value="false" />
-        <entry key="scanscope" value="JavaOnly" />
-        <entry key="suppress-errors" value="false" />
-      </map>
+  <component name="CheckStyle-IDEA" serialisationVersion="2">
+    <checkstyleVersion>8.14</checkstyleVersion>
+    <scanScope>JavaOnly</scanScope>
+    <option name="thirdPartyClasspath" />
+    <option name="activeLocationIds" />
+    <option name="locations">
+      <list>
+        <ConfigurationLocation id="5e796c55-ccfb-4ee7-913f-66bfe2b5d380" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="e6a48a1f-a674-4ea3-8c58-e5a78c514649" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+      </list>
     </option>
   </component>
 </project>
